@@ -1,3 +1,4 @@
+#include <tuple>
 #include "controller.hpp"
 
 PIDController::PIDController(double kp, double ki, double kd)
@@ -12,6 +13,16 @@ double PIDController::compute(double setpoint, double measured_value) {
     
     previous_error_ = error;
     return output;
+}
+
+void PIDController::setGains(double kp, double ki, double kd) {
+    kp_ = kp;
+    ki_ = ki;
+    kd_ = kd;
+}
+
+std::tuple<double, double, double> PIDController::getGains() const{
+    return std::make_tuple(kp_, ki_, kd_);
 }
 
 void PIDController::reset() {
