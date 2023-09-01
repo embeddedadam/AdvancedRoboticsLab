@@ -1,0 +1,27 @@
+# .gitignore
+
+# Ignore build directory at the root and all subdirectories
+build/
+**/build/
+
+# CMake specific files
+CMakeCache.txt
+CMakeFiles/
+**/CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Executable files
+*.out
+*.o
+*.exe
+
+# IDE-specific
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# macOS specific
+.DS_Store
