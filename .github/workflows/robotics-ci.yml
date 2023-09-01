@@ -38,4 +38,4 @@ jobs:
       run: make
 
     - name: Run tests
-      run: ./runTests
+      run: ./(PID\ Controller\ for\ Robot\ Navigation/runTests

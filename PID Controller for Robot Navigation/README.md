@@ -15,7 +15,7 @@ This repository contains a C++ implementation of a PID (Proportional-Integral-De
   - [Running the tests](#running-the-tests)
   - [PID Controller Theory](#pid-controller-theory)
     - [Effect of Tuning Parameters](#effect-of-tuning-parameters)
-  - [List of Methods of Choosing PID Gains -\> Search web for more details.](#list-of-methods-of-choosing-pid-gains---search-web-for-more-details)
+  - [List of Methods of Choosing PID Gains](#list-of-methods-of-choosing-pid-gains)
 
 ## Dependencies
 
@@ -101,7 +101,7 @@ A PID controller continuously calculates an error value as the difference betwee
 
 Please note that tuning a PID controller is often an iterative process, and the behaviors described above might vary based on the specific system being controlled. You can play around with paramters in the `main.cpp` file to see how the controller behaves in different scenarios.
 
-## List of Methods of Choosing PID Gains -> Search web for more details.
+## List of Methods of Choosing PID Gains
 
 1. **Manual Tuning**:
    - Start with `Ki` and `Kd` set to zero.
@@ -140,3 +140,5 @@ Please note that tuning a PID controller is often an iterative process, and the 
 
 10. **Skogestad's Method**:
     - Based on first-order plus time delay approximations of the process.
+
+Search web for more details.

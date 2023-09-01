@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(AdvancedRoboticsLab)
+
+# Include the subdirectories containing the CMakeLists.txt for each project
+
+add_subdirectory(PID\ Controller\ for\ Robot\ Navigation)
+# ... Add other projects as needed
+
