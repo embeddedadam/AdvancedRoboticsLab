@@ -1,0 +1,41 @@
+name: Robotics CI
+
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      run: sudo apt-get install g++ cmake libgtest-dev python3 python3-pip
+
+    - name: Install dependencies (macOS)
+      if: matrix.os == 'macOS-latest'
+      run: brew install cmake googletest python
+
+    - name: Install python dependencies
+      run: pip3 install matplotlib numpy
+      
+    - name: Create Build Directory
+      run: mkdir build
+
+    - name: Navigate to Build Directory
+      run: cd build
+
+    - name: CMake
+      run: cmake ..
+
+    - name: Build Project
+      run: make
+
+    - name: Run tests
+      run: ./runTests
