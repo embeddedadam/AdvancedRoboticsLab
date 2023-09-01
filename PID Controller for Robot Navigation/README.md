@@ -12,12 +12,14 @@ This repository contains a C++ implementation of a PID (Proportional-Integral-De
     - [Ubuntu](#ubuntu)
   - [Building the Project](#building-the-project)
   - [Running the Project](#running-the-project)
+  - [Running the tests](#running-the-tests)
   - [PID Controller Theory](#pid-controller-theory)
     - [Effect of Tuning Parameters](#effect-of-tuning-parameters)
 
 ## Dependencies
 
 - CMake
+- Gtest (for running tests)
 - Python (with Matplotlib and NumPy)
 - A C++ compiler
 
@@ -34,7 +36,7 @@ This repository contains a C++ implementation of a PID (Proportional-Integral-De
 2. **Install Dependencies**:
 
     ```bash
-    brew install cmake python
+    brew install cmake python googletest
     pip3 install matplotlib numpy
     ```
 
@@ -68,6 +70,14 @@ After building, execute the resulting binary:
 
 ```bash
 ./PIDController
+```
+
+## Running the tests
+
+After building, execute the test binary:
+
+```bash
+./runTests
 ```
 
 ## PID Controller Theory
