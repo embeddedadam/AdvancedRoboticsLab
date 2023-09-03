@@ -1,3 +1,4 @@
+#include <random>
 #include "gtest/gtest.h"
 #include "controller.hpp"
 
@@ -41,9 +42,23 @@ TEST_F(PIDControllerTest, TestReset) {
 }
 
 TEST_F(PIDControllerTest, TestSetGains) {
-    pid_controller.setGains(13.0, 19.0, 122.0);
-    auto gains = pid_controller.getGains();
-    EXPECT_DOUBLE_EQ(std::get<0>(gains), 13.0);
-    EXPECT_DOUBLE_EQ(std::get<1>(gains), 19.0);
-    EXPECT_DOUBLE_EQ(std::get<2>(gains), 122.0);
+    // Setting up random number generation
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(0.0, 150.0);  // Adjust range as necessary
+
+    const int num_iterations = 100; // or any other number of iterations you'd like
+
+    for (int i = 0; i < num_iterations; ++i) {
+        double kp = dis(gen);
+        double ki = dis(gen);
+        double kd = dis(gen);
+
+        pid_controller.setGains(kp, ki, kd);
+        auto gains = pid_controller.getGains();
+
+        EXPECT_DOUBLE_EQ(std::get<0>(gains), kp);
+        EXPECT_DOUBLE_EQ(std::get<1>(gains), ki);
+        EXPECT_DOUBLE_EQ(std::get<2>(gains), kd);
+    }
 }
