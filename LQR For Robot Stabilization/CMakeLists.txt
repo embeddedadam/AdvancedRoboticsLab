@@ -1,28 +1,27 @@
-# Specifying the minimum version
 cmake_minimum_required(VERSION 3.10)
 
-# Project name
 project(LQRStabilization)
 
-# Set the C++ Standard
 set(CMAKE_CXX_STANDARD 17)
 
-# Include directories
+# Find Python libraries
+find_package(PythonLibs 3 REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
+
+# Add the main executable
 include_directories(include)
+add_executable(LQRStabilization src/main.cpp src/lqr.cpp)
+target_link_libraries(LQRStabilization ${PYTHON_LIBRARIES})
 
-# Source files
-set(SOURCE_FILES src/main.cpp)
+# Suppress deprecation warnings 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 
-# Create the executable for the main project
-add_executable(LQRStabilization ${SOURCE_FILES})
-
-# Add Google Test
+# GoogleTest setup
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-# LQR test files
-set(LQR_TEST_SOURCE_FILES tests/test_lqr.cpp)
-
 # Test executable
-add_executable(runLQRTests ${LQR_TEST_SOURCE_FILES})
-target_link_libraries(runLQRTests ${GTEST_LIBRARIES} pthread)
+add_executable(runLQRTests tests/test_lqr.cpp)
+target_link_libraries(runLQRTests ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} pthread)
+
+target_sources(runLQRTests PRIVATE tests/test_lqr.cpp)
