@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 # Find Python libraries
 find_package(PythonLibs 3 REQUIRED)
 include_directories(${PYTHON_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR}/utils)  # Include the utils directory
 
 # Add the main executable
 include_directories(include)

@@ -16,7 +16,7 @@ jobs:
 
     - name: Install dependencies (macOS)
       if: matrix.os == 'macOS-latest'
-      run: brew install cmake googletest python
+      run: brew install cmake googletest python eigen
 
     - name: Install python dependencies
       run: pip3 install matplotlib numpy
