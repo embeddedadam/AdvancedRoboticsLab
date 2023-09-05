@@ -27,5 +27,8 @@ jobs:
     - name: "Build Project" 
       run: cmake --build build --target all --config Release -- -j4 
     
-    - name: Run tests
+    - name: Run PID tests
       run: ./build/PID\ Controller\ for\ Robot\ Navigation/runTests
+
+    - name: Run LQR tests
+      run: ./build/LQR\ For\ Robot\ Stabilization/runLQRTests

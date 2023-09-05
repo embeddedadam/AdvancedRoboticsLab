@@ -25,7 +25,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 # Test executable
-add_executable(runLQRTests tests/test_lqr.cpp)
+add_executable(runLQRTests tests/test_lqr.cpp src/lqr.cpp)
 target_link_libraries(runLQRTests ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} pthread)
 
 target_sources(runLQRTests PRIVATE tests/test_lqr.cpp)
