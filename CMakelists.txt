@@ -4,8 +4,9 @@ project(AdvancedRoboticsLab)
 
 # Include the subdirectories containing the CMakeLists.txt for each project
 
-add_subdirectory(PID\ Controller\ for\ Robot\ Navigation)
-add_subdirectory(LQR\ For\ Robot\ Stabilization)
+add_subdirectory(PID)
+add_subdirectory(LQR)
 add_subdirectory(LQG)
+add_subdirectory(MPC)
 
 # ... Add other projects as needed
