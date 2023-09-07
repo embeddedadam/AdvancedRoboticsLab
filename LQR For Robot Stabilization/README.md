@@ -55,6 +55,33 @@ Where `K` is the feedback gain matrix determined by LQR.
 
 To determine the matrix `K`, we solve the continuous-time algebraic Riccati equation. This equation arises from the condition of optimality and plays a crucial role in finding the optimal control law. In this project, the Riccati equation is solved iteratively.
 
+## Methods to Solve the Riccati Equation
+
+1. **Analytical Methods**:
+   - For some simple systems, the Riccati equation can be solved analytically.
+   - This is rarely used in practice for complex systems.
+
+2. **Numerical Integration**:
+   - Differential Riccati equations can be integrated using methods like Euler's method and Runge-Kutta.
+
+3. **DARE (Discrete-time Algebraic Riccati Equation) Solvers**:
+   - Specialized algorithms exist for discrete-time systems.
+
+4. **CARE (Continuous-time Algebraic Riccati Equation) Solvers**:
+   - Algorithms specifically for continuous-time systems.
+
+5. **Iterative Methods**:
+   - Includes Newton's method and gradient methods.
+
+6. **Schur Method**:
+   - Reduces the Riccati problem to finding a stable invariant subspace of an associated Hamiltonian matrix.
+
+7. **Eigendecomposition**:
+   - Solutions can be found via eigenvalues and eigenvectors of associated matrices.
+
+8. **Software and Control Toolboxes**:
+   - Tools like MATLAB and Octave offer built-in functions (`care` and `dare`).
+
 ## What's Inside `main.cpp`?
 
 In `main.cpp`, we simulate a system's behavior under the LQR controller's influence. The system dynamics are defined, initial conditions are set, and the system's response is visualized over time. Through plotted results, you can observe the system's performance and the LQR controller's efficacy.

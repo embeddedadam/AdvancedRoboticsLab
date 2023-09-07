@@ -6,5 +6,6 @@ project(AdvancedRoboticsLab)
 
 add_subdirectory(PID\ Controller\ for\ Robot\ Navigation)
 add_subdirectory(LQR\ For\ Robot\ Stabilization)
+add_subdirectory(LQG)
 
 # ... Add other projects as needed
