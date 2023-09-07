@@ -28,7 +28,7 @@ jobs:
       run: cmake --build build --target all --config Release -- -j4 
     
     - name: Run PID tests
-      run: ./build/PID\ Controller\ for\ Robot\ Navigation/runTests
+      run: ./build/PID/runTests
 
     - name: Run LQR tests
-      run: ./build/LQR\ For\ Robot\ Stabilization/runLQRTests
+      run: ./build/LQR/runLQRTests
