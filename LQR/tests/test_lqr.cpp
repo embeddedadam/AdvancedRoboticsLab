@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "lqr.hpp"
 #include <Eigen/Dense>
+#include "lqr.hpp"
 
 class LQRTest : public ::testing::Test {
 protected:

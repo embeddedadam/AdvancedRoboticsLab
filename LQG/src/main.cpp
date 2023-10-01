@@ -22,7 +22,7 @@ int main() {
     x_true << 0.0;
     x_hat << 0.0;
 
-    const int T = 1000;
+    const int T = 500;
     std::vector<double> x_history, u_history, y_history;
 
     for (int t = 0; t < T; t++) {

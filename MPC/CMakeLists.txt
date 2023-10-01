@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Find Python libraries
 find_package(PythonLibs 3 REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_library(OSQP_LIBRARY osqp)
 include_directories(${EIGEN3_INCLUDE_DIR})
 include_directories(${PYTHON_INCLUDE_DIRS})
 include_directories(${CMAKE_SOURCE_DIR}/utils)  # Include the utils directory
@@ -29,3 +30,5 @@ add_executable(runMPCTests tests/test_mpc.cpp src/mpc.cpp)
 target_link_libraries(runMPCTests ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} pthread)
 
 target_sources(runMPCTests PRIVATE tests/test_mpc.cpp)
+target_link_libraries(MPC ${OSQP_LIBRARY})
+
