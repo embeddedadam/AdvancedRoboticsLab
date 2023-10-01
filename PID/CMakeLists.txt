@@ -23,6 +23,6 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # Test executable
 add_executable(runTests tests/test_pid.cpp)
-target_link_libraries(runTests ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} pthread)
+target_link_libraries(runTests ${GTEST_MAIN_LIBRARIES} pthread)
 
 target_sources(runTests PRIVATE src/controller.cpp)

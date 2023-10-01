@@ -28,6 +28,6 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # Test executable
 add_executable(runLQGTests tests/test_lqg.cpp src/lqg.cpp)
-target_link_libraries(runLQGTests ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} pthread)
+target_link_libraries(runLQGTests ${GTEST_MAIN_LIBRARIES} pthread)
 
 target_sources(runLQGTests PRIVATE tests/test_lqg.cpp)

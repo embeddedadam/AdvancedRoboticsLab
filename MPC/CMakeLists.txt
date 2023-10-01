@@ -8,7 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Find Python libraries
 find_package(PythonLibs 3 REQUIRED)
 find_package(Eigen3 REQUIRED)
-find_library(OSQP_LIBRARY osqp)
+find_package(osqp REQUIRED)
+
 include_directories(${EIGEN3_INCLUDE_DIR})
 include_directories(${PYTHON_INCLUDE_DIRS})
 include_directories(${CMAKE_SOURCE_DIR}/utils)  # Include the utils directory
@@ -16,7 +17,9 @@ include_directories(${CMAKE_SOURCE_DIR}/utils)  # Include the utils directory
 # Add the main executable
 include_directories(include)
 add_executable(MPC src/main.cpp src/mpc.cpp)
-target_link_libraries(MPC ${PYTHON_LIBRARIES})
+
+# Linking libraries
+target_link_libraries(MPC PRIVATE ${PYTHON_LIBRARIES} osqp::osqp)
 
 # Suppress deprecation warnings 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
@@ -27,8 +30,6 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # Test executable
 add_executable(runMPCTests tests/test_mpc.cpp src/mpc.cpp)
-target_link_libraries(runMPCTests ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} pthread)
+target_link_libraries(runMPCTests ${GTEST_MAIN_LIBRARIES} pthread)
 
 target_sources(runMPCTests PRIVATE tests/test_mpc.cpp)
-target_link_libraries(MPC ${OSQP_LIBRARY})
-
