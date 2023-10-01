@@ -43,7 +43,7 @@ The field of robotics and artificial intelligence (AI) is rapidly evolving. This
 - **Objective:** Train a reinforcement learning model for complex robot manipulations.
 - **Highlights:** Model training in a simulated environment, policy optimization, and transfer to real hardware.
 
-### 6. Model Predictive Control (MPC) for Drone Navigation
+### 6. Model Predictive Control (MPC).
 
 - **Objective:** Implement an MPC algorithm for drone stabilization and navigation.
 - **Highlights:** Comparative analysis with PID controllers, navigation performance metrics.
@@ -120,7 +120,7 @@ The field of robotics and artificial intelligence (AI) is rapidly evolving. This
 
 - [Deep Reinforcement Learning for Robotic Manipulation with Asynchronous Off-Policy Updates](https://arxiv.org/abs/1610.00633)
 
-### 6. Model Predictive Control (MPC) for Drone Navigation
+### 6. Model Predictive Control (MPC).
 
 **YouTube Videos:**
 
