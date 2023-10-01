@@ -4,6 +4,10 @@
 build/
 **/build/
 
+# Ignore logs and install directory at all subdirectories
+**/logs/
+**/install/
+
 # CMake specific files
 CMakeCache.txt
 CMakeFiles/
